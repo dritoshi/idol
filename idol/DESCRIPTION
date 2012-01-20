@@ -1,0 +1,16 @@
+Package: idol
+Type: Package
+Title: Make your idol
+Version: 1.0
+Date: 2012-01-20
+Author: Itoshi NIKAIDO
+Maintainer: Itoshi NIKAIDO <dritoshi@gmail.com>
+Description: Make your virtual idol in R. You can indicate your favorite body
+    shape to your idol. This package provides idol class and some method for
+    calculating some statistic of her body shape.
+License: Artistic-2.0
+LazyLoad: yes
+Depends:
+    methods
+Collate:
+    'idol.R'
