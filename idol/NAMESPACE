@@ -1,2 +1,3 @@
 exportMethods(effective.capsize)
 exportMethods(substantial.aspect)
+import(methods)

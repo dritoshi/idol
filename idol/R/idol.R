@@ -1,3 +1,36 @@
+#' idol
+#' 
+#' @name idol
+#' @docType package
+#' @aliases idol package-idol
+#' @import methods
+NULL
+
+#' Idols in 765 Production
+#' 
+#' A dataset containing idols with her official profile.
+#' A data has three typical idols in 765 Production (Hibiki,
+#' Azusa and Chihaya).
+#' The variables are as follows:
+#' 
+#' \itemize{
+#'   \item first.name. Her first name
+#'   \item last.name. Her last name
+#'   \item height. Her body height in cm
+#'   \item weight. Her body weight in kg
+#'   \item bust. Her top bust size in cm
+#'   \item waist. Her waist size in cm
+#'   \item hip. Her hip size in cm
+#' }
+#' 
+#' @docType data
+#' @keywords datasets
+#' @name idolmaster765
+#' @usage data(idolmaster765)
+#' @format A data object with three idol objects
+#' @references \url{http://www.bandainamcogames.co.jp/cs/list/idolmaster/}
+NULL
+
 setClass("Idol",
   representation(
     first.name = "character",
