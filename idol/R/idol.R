@@ -1,9 +1,15 @@
-#' idol
+#' idol package
 #' 
-#' @name idol
+#' @name idol-package
 #' @docType package
 #' @aliases idol package-idol
+#'
+#' @author
+#' Author: Itoshi NIKAIDO
+#' Maintainer: Itoshi NIKAIDO. \email{dritoshi@@gmail.com}
+#'
 #' @import methods
+#' @exportPattern '^[^\\.]'
 NULL
 
 #' Idols in 765 Production
@@ -31,8 +37,35 @@ NULL
 #' @references \url{http://www.bandainamcogames.co.jp/cs/list/idolmaster/}
 NULL
 
-setClass("Idol",
-  representation(
+#' Idol class
+#'
+#' Idol Class (description)
+#'
+#' \code{Idol} class is a reference class (details).
+#'
+#' @name Idol
+#' @docType class
+#'
+#' @section Fields:
+#' \itemize{
+#'   \item first.name. Her first name
+#'   \item last.name. Her last name
+#'   \item height. Her body height in cm
+#'   \item weight. Her body weight in kg
+#'   \item bust. Her top bust size in cm
+#'   \item waist. Her waist size in cm
+#'   \item hip. Her hip size in cm
+#' }
+#' @section Contains:
+#' NULL
+#' @section Methods:
+#' \itemize{
+#'   \item effective.capsize
+#'   \item substantial.aspect
+#' }
+#' @keywords documentation
+Idol <- setRefClass("Idol",
+  fields = list(
     first.name = "character",
     last.name  = "character",
     height     = "numeric",
@@ -41,43 +74,54 @@ setClass("Idol",
     waist      = "numeric",
     hip        = "numeric"
   ),
-  prototype(
-    first.name = "Hibiki",
-    last.name  = "Ganaha",
-    height     = 152,
-    weight     = 41,
-    bust       = 83,
-    waist      = 56,
-    hip        = 80
+  methods = list(
+	effective.capsize = function() {
+	    (bust - waist) * 100 / height
+    },
+    substantial.aspect = function() { 
+	    (bust + waist + hip) * 10 / height
+    }
   )
 )
+
 #' Calculate effective bust cap size ratio
 #'
 #' This function calculate effective bust cap size ratio of your idol
 #' when you can know her cap size.
 #'
+#' @name effective.capsize
 #' @param object idol object
 #' @keywords bust
-#' @export
 #' @examples
-#' my.idol     <- new("Idol")
-#' my.idol.ecr <- effective.capsize(my.idol)
-setGeneric("effective.capsize", function(object) { standardGeneric("effective.capsize") })
-setMethod("effective.capsize", "Idol",
-  function(object) { (object@bust - object@waist) * 100 / object@height }
-)
+#' MyIdol     <- Idol$new(
+#'   first.name = "Hibiki",
+#'   last.name  = "Ganaha",
+#'   height     = 152,
+#'   weight     = 41,
+#'   bust       = 83,
+#'   waist      = 56,
+#'   hip        = 80
+#' )
+#' my.idol.ecr <- MyIdol$effective.capsize()
+NULL
+
 #' Calculate substantial aspect ratio 
 #'
 #' This function calculate substantial aspect ratio of your idol
 #' This statistic represents her body shape.
 #'
+#' @name substantial.aspect
 #' @param object idol object
 #' @keywords body shape
-#' @export
 #' @examples
-#' my.idol     <- new("Idol")
-#' my.idol.sbr <- substantial.aspect(my.idol)
-setGeneric("substantial.aspect", function(object) { standardGeneric("substantial.aspect") })
-setMethod("substantial.aspect", "Idol",
-  function(object) { (object@bust + object@waist + object@hip) * 10 / object@height }
-)
+#' MyIdol     <- Idol$new(
+#'   first.name = "Hibiki",
+#'   last.name  = "Ganaha",
+#'   height     = 152,
+#'   weight     = 41,
+#'   bust       = 83,
+#'   waist      = 56,
+#'   hip        = 80
+#' )
+#' my.idol.sbr <- MyIdol$substantial.aspect()
+NULL

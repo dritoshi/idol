@@ -1,3 +1,2 @@
-exportMethods(effective.capsize)
-exportMethods(substantial.aspect)
+exportPattern('^[^\\.]')
 import(methods)

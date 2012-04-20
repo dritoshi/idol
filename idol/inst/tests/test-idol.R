@@ -4,11 +4,19 @@ test_that("check effective cap ratio", {
   waist  <- 56
   my.ecr <- (bust - waist) * 100 / height
 
-  my.idol <- new("Idol")
+  MyIdol <- Idol$new(
+	first.name = "Hibiki",
+    last.name  = "Ganaha",
+    height     = height,
+    weight     = 41,
+    bust       = bust,
+    waist      = waist,
+    hip        = 80
+  )
   
   expect_equal(
     my.ecr,
-    effective.capsize(my.idol)
+    MyIdol$effective.capsize()
   )
 }
 )
@@ -19,11 +27,19 @@ test_that("check substantial aspect ratio", {
   hip    <- 80 
   my.sar <- (bust + waist + hip) * 10 / height
 
-  my.idol <- new("Idol")
-  
+  MyIdol <- Idol$new(
+    first.name = "Hibiki",
+    last.name  = "Ganaha",
+    height     = height,
+    weight     = 41,
+    bust       = bust,
+    waist      = waist,
+    hip        = 80
+  )  
+
   expect_equal(
     my.sar,
-    substantial.aspect(my.idol)
+    MyIdol$substantial.aspect()
   )
 }
 )

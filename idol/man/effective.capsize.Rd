@@ -9,8 +9,16 @@
   your idol when you can know her cap size.
 }
 \examples{
-my.idol     <- new("Idol")
-my.idol.ecr <- effective.capsize(my.idol)
+MyIdol     <- Idol$new(
+  first.name = "Hibiki",
+  last.name  = "Ganaha",
+  height     = 152,
+  weight     = 41,
+  bust       = 83,
+  waist      = 56,
+  hip        = 80
+)
+my.idol.ecr <- MyIdol$effective.capsize()
 }
 \keyword{bust}
 
