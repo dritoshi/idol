@@ -51,9 +51,9 @@ setClass("Idol",
     hip        = 80
   )
 )
-#' Calcuate effective bust cap size ratio
+#' Calculate effective bust cap size ratio
 #'
-#' This function calcuate effective bust cap size ratio of your idol
+#' This function calculate effective bust cap size ratio of your idol
 #' when you can know her cap size.
 #'
 #' @param object idol object
@@ -66,9 +66,9 @@ setGeneric("effective.capsize", function(object) { standardGeneric("effective.ca
 setMethod("effective.capsize", "Idol",
   function(object) { (object@bust - object@waist) * 100 / object@height }
 )
-#' Calcuate substantial aspect ratio 
+#' Calculate substantial aspect ratio 
 #'
-#' This function calcuate substantial aspect ratio of your idol
+#' This function calculate substantial aspect ratio of your idol
 #' This statistic represents her body shape.
 #'
 #' @param object idol object
